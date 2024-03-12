@@ -17,6 +17,7 @@ pip install openmim
 mim install mmcv-full==1.6.0
 mim install mmcls==0.25.0
 mim install mmdet==2.24.0
+pip install -r requirements.txt
 
 # install mmfewshot
 pip install git+https://github.com/open-mmlab/mmfewshot.git
@@ -37,17 +38,17 @@ for the data preparation steps.
 
 | Config | Split | Base AP50 | ckpt |
 |:---:|:---:|:---:|:---:|
-|[config](configs/fpd/voc/split1/fpd_r101_c4_2xb4_voc-split1_base-training.py)|1|89.2|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split1_base-training_iter_20000.pth)|
-|[config](configs/fpd/voc/split2/fpd_r101_c4_2xb4_voc-split2_base-training.py)|2|88.8|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split2_base-training_iter_20000.pth)|
-|[config](configs/fpd/voc/split3/fpd_r101_c4_2xb4_voc-split3_base-training.py)|3|88.7|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split3_base-training_iter_20000.pth)|
+|[config](configs/fpd/voc/split1/fpd_r101_c4_2xb4_voc-split1_base-training.py)|1|79.8|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split1_base-training_iter_20000.pth)|
+|[config](configs/fpd/voc/split2/fpd_r101_c4_2xb4_voc-split2_base-training.py)|2|80.3|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split2_base-training_iter_20000.pth)|
+|[config](configs/fpd/voc/split3/fpd_r101_c4_2xb4_voc-split3_base-training.py)|3|80.2|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split3_base-training_iter_20000.pth)|
 
 * Few Shot Fine-tuning
 
 | Config | Split | Shot | Novel AP50 | ckpt | log |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|[config](configs/fpd/voc/split1/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning.py)|1|10|69.0|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning_iter_2400.pth)|[log](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning.log)|
-|[config](configs/fpd/voc/split2/fpd_r101_c4_2xb4_voc-split2_10shot-fine-tuning.py)|2|10|56.5|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split2_10shot-fine-tuning_iter_1800.pth)|[log](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split2_10shot-fine-tuning.log)|
-|[config](configs/fpd/voc/split3/fpd_r101_c4_2xb4_voc-split3_10shot-fine-tuning.py)|3|10|64.1|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split3_10shot-fine-tuning_iter_1200.pth)|[log](https://github.com/wangchen1801/FPD/releases/download/ckpts/fpd_r101_c4_2xb4_voc-split3_10shot-fine-tuning.log)|
+|[config](configs/fpd/voc/split1/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning.py)|1|10|68.4|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning_iter_2000.pth)|[log](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning.log)|
+|[config](configs/fpd/voc/split2/fpd_r101_c4_2xb4_voc-split2_10shot-fine-tuning.py)|2|10|53.9|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split2_10shot-fine-tuning_iter_2000.pth)|[log](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split2_10shot-fine-tuning.log)|
+|[config](configs/fpd/voc/split3/fpd_r101_c4_2xb4_voc-split3_10shot-fine-tuning.py)|3|10|62.9|[ckpt](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split3_10shot-fine-tuning_iter_3200.pth)|[log](https://github.com/wangchen1801/FPD/releases/download/ckpts_fpd/fpd_r101_c4_2xb4_voc-split3_10shot-fine-tuning.log)|
 
 ## Results on COCO Dataset
 * Base Training
@@ -77,7 +78,7 @@ bash dist_test.sh ${CONFIG} ${CHECKPOINT} ${NUM_GPU} --eval mAP|bbox
 ```bash
 bash dist_test.sh \
     configs/fpd/voc/split1/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning.py \
-    ./work_dirs/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning_iter_2400.pth 2 --eval mAP
+    ./work_dirs/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning/fpd_r101_c4_2xb4_voc-split1_10shot-fine-tuning_iter_2000.pth 2 --eval mAP
 ```
 
 * Test pretrained weights on COCO 30-shot with 2 gpus:
